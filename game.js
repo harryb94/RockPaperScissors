@@ -1,20 +1,21 @@
 function computerPlay() {
-    let computerChoice;
+    let computerSelection;
     let random = Math.floor(Math.random()*100+1);
     console.log(random);
     if (random <= 33)
         {
-            computerChoice = 'Rock';        
+            computerSelection = 'rock';        
         }
     else if (random > 33 && random <= 67)
         {
-            computerChoice = 'Paper';
+            computerSelection = 'paper';
         }
     else
-        computerChoice = 'Scissors'
+        computerSelection = 'scissors'
 
-    console.log(computerChoice);
+    console.log(computerSelection);
 
 }
 
 computerPlay();
+
