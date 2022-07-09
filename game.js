@@ -15,9 +15,58 @@ function computerPlay() {
 
     console.log(computerSelection);
 
+    return computerSelection;
+
 }
 
-computerPlay();
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;    
+    playRound();
+}
 
-let playerSelection = prompt('Rock, Paper or Scissors?').toLowerCase();
+function playRound() {
+    let playerSelection = prompt('Rock, Paper or Scissors?').toLowerCase();
+    const computerSelection = computerPlay();
+    if (playerSelection == computerSelection)
+        {
+            alert('Tie!');
+        } 
+    else if (computerSelection == 'rock')
+        {
+            if (playerSelection == 'paper')
+                {
+                    alert('You Win! Paper beats Rock');
+                }
+            else if (playerSelection == 'scissors')
+                {
+                    alert('You Lose! Rock beats Scissors');
+                }
+        }
+    else if (computerSelection == 'paper')
+        {
+            if (playerSelection == 'scissors')
+                {
+                alert('You Win! Scissors beats Paper');
+                }
+             else if (playerSelection == 'rock')
+                {
+                alert('You Lose! Paper beats Rock');
+                }
+        }
 
+        else if (computerSelection == 'scissors')
+        {
+            if (playerSelection == 'rock')
+                {
+                alert('You Win! Rock beats Scissors');
+                }
+             else if (playerSelection == 'paper')
+                {
+                alert('You Lose! Scissors beats Paper');
+                }
+        }
+}
+
+
+game();
