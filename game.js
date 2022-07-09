@@ -19,9 +19,10 @@ function computerPlay() {
 
 }
 
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;    
+let playerScore = 0;
+let computerScore = 0; 
+
+function game() { 
     playRound();
 }
 
@@ -37,10 +38,12 @@ function playRound() {
             if (playerSelection == 'paper')
                 {
                     alert('You Win! Paper beats Rock');
+                    playerWin();
                 }
             else if (playerSelection == 'scissors')
                 {
                     alert('You Lose! Rock beats Scissors');
+                    computerWin();
                 }
         }
     else if (computerSelection == 'paper')
@@ -48,10 +51,12 @@ function playRound() {
             if (playerSelection == 'scissors')
                 {
                 alert('You Win! Scissors beats Paper');
+                playerWin();
                 }
              else if (playerSelection == 'rock')
                 {
                 alert('You Lose! Paper beats Rock');
+                computerWin();
                 }
         }
 
@@ -60,13 +65,23 @@ function playRound() {
             if (playerSelection == 'rock')
                 {
                 alert('You Win! Rock beats Scissors');
+                playerWin();
                 }
              else if (playerSelection == 'paper')
                 {
                 alert('You Lose! Scissors beats Paper');
+                computerWin();
                 }
         }
 }
 
+function playerWin(){
+        playerScore++;
+        return playerScore;
+    }
 
+function computerWin(){
+    computerScore++;
+    return computerScore;
+}
 game();
