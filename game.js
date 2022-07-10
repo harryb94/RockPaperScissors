@@ -37,7 +37,9 @@ function playRound() {
         {
             alert('Tie!');
             roundsPlayed++;
-            alert('Games Played: ' + roundsPlayed);
+            playerScore++;
+            computerScore++;
+            alert('Games Played: ' + roundsPlayed + '\n\nThe Score is:\nPlayer: ' + playerScore + "\nComputer: " + computerScore);
         } 
     else if (computerSelection == 'rock')
         {
@@ -84,12 +86,14 @@ function playRound() {
 function playerWin(){
         playerScore++;
         roundsPlayed++;
-        alert('Games Played: ' + roundsPlayed);
+        alert('Games Played: ' + roundsPlayed + '\n\nThe Score is:\nPlayer: ' + playerScore + "\nComputer: " + computerScore);
     }
 
 function computerWin(){
     computerScore++;
     roundsPlayed++;
-    alert('Games Played: ' + roundsPlayed);
+    alert('Games Played: ' + roundsPlayed + '\n\nThe Score is:\nPlayer: ' + playerScore + "\nComputer: " + computerScore);
+
+
 }
 game();
