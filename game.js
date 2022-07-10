@@ -28,6 +28,8 @@ function game() {
     {
         playRound();
     }
+
+    determineWinner();
 }
 
 function playRound() {
@@ -93,7 +95,20 @@ function computerWin(){
     computerScore++;
     roundsPlayed++;
     alert('Games Played: ' + roundsPlayed + '\n\nThe Score is:\nPlayer: ' + playerScore + "\nComputer: " + computerScore);
-
-
 }
+
+function determineWinner(){
+    if (playerScore > computerScore) 
+    {
+        alert('You are the winner!'); 
+    }
+
+    else if (computerScore > playerScore)
+    {
+        alert('You are the loser!');  
+    }
+
+    else alert('The game has tied!');
+}
+
 game();
