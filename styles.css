@@ -1,0 +1,25 @@
+body {
+    display : flex;
+    text-align: center;
+    flex: auto;
+    flex-direction: column;
+    justify-content: center;
+    width: auto;
+
+}
+
+.main {
+    display: flex;
+}
+
+.choices {
+    display:flex;
+    flex:auto;
+    justify-content: space-between;
+}
+
+#btn {
+    padding: 10px 10px;
+    display: flex;
+}
+
