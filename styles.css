@@ -1,25 +1,30 @@
 body {
     display : flex;
     text-align: center;
-    flex: auto;
     flex-direction: column;
-    justify-content: center;
-    width: auto;
+    height: 100vh;
+    margin: 0;
 
 }
 
-.main {
+.buttons {
     display: flex;
-}
-
-.choices {
-    display:flex;
-    flex:auto;
     justify-content: space-between;
+
 }
 
-#btn {
+button {
     padding: 10px 10px;
     display: flex;
+    flex-shrink: 2;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: 100px;
 }
 
+footer {
+    margin-top: auto;
+    margin-bottom: 10px;
+
+}
