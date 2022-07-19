@@ -102,6 +102,7 @@ function playerWin(){
         roundsPlayed++;
         playerScoreLog.textContent = 'Player Score: ' + playerScore;
         gamesPlayedLog.textContent = 'Games Played: ' + roundsPlayed;
+        resultLog.setAttribute('style', 'color: green');
         checkForWinner();
         //alert('Games Played: ' + roundsPlayed + '\n\nThe Score is:\nPlayer: ' + playerScore + "\nComputer: " + computerScore);
     }
@@ -111,6 +112,8 @@ function computerWin(){
     roundsPlayed++;
     computerScoreLog.textContent = 'Computer Score: ' + computerScore;
     gamesPlayedLog.textContent = 'Games Played: ' + roundsPlayed;
+    resultLog.setAttribute('style', 'color: red');
+
     checkForWinner();
 
    //alert('Games Played: ' + roundsPlayed + '\n\nThe Score is:\nPlayer: ' + playerScore + "\nComputer: " + computerScore);
@@ -119,6 +122,8 @@ function computerWin(){
 function tie(){
     roundsPlayed++;
     gamesPlayedLog.textContent = 'Games Played: ' + roundsPlayed;
+    resultLog.setAttribute('style', 'color: yellow');
+
     checkForWinner();
 }
 
@@ -132,14 +137,14 @@ function determineWinner(){
     if (playerScore > computerScore) 
     {
         resultLog.textContent = 'You are the winner!';
-        resultLog.setAttribute('style', 'font-size: xx-large');
-        playerScoreLog.setAttribute('style', 'color: red');
+        resultLog.setAttribute('style', 'font-size: xx-large; color: green;');
+        playerScoreLog.setAttribute('style', 'color: green');
     }
 
-    else (computerScore > playerScore)
+    else if (computerScore > playerScore)
     {
        resultLog.textContent = 'You are the loser! Computer wins!';  
-       resultLog.setAttribute('style', 'font-size: xx-large');
+       resultLog.setAttribute('style', 'color: red; font-size: xx-large');
        computerScoreLog.setAttribute('style', 'color: red');
 
     }
