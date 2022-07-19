@@ -23,13 +23,18 @@ let playerScore = 0;
 let computerScore = 0;
 let roundsPlayed = 0; 
 
-function game(playerSelection) { 
-   // while (roundsPlayed < 5)
-    //{
-        playRound(playerSelection);
-    //}
+let gamesPlayedLog = document.querySelector('#games');
+let playerScoreLog = document.querySelector('#playerScore');
+let computerScoreLog = document.querySelector('#computerScore');
+let resultLog = document.querySelector('#result');
 
-    //determineWinner();
+function game(playerSelection) { 
+    if (playerScore < 5 && computerScore < 5)
+    {
+        playRound(playerSelection);
+    }
+
+    else determineWinner();
 }
 
 let buttons = document.querySelectorAll('button');
@@ -47,22 +52,19 @@ function playRound(playerSelection) {
     const computerSelection = computerPlay();
     if (playerSelection == computerSelection)
         {
-            alert('Tie!');
-            roundsPlayed++;
-            playerScore++;
-            computerScore++;
-            alert('Games Played: ' + roundsPlayed + '\n\nThe Score is:\nPlayer: ' + playerScore + "\nComputer: " + computerScore);
+            tie();
+            resultLog.textContent = 'Tie!';
         } 
     else if (computerSelection == 'rock')
         {
             if (playerSelection == 'paper')
                 {
-                   alert('You Win! Paper beats Rock');
+                   resultLog.textContent = 'You Win! Paper beats Rock';
                     playerWin();
                 }
             else if (playerSelection == 'scissors')
                 {
-                    alert('You Lose! Rock beats Scissors');
+                    resultLog.textContent = 'You Lose! Rock beats Scissors';
                     computerWin();
                 }
         }
@@ -70,12 +72,12 @@ function playRound(playerSelection) {
         {
             if (playerSelection == 'scissors')
                 {
-               alert('You Win! Scissors beats Paper');
+               resultLog.textContent = 'You Win! Scissors beats Paper';
                 playerWin();
                 }
              else if (playerSelection == 'rock')
                 {
-               alert('You Lose! Paper beats Rock');
+               resultLog.textContent = 'You Lose! Paper beats Rock';
                 computerWin();
                 }
         }
@@ -84,12 +86,12 @@ function playRound(playerSelection) {
         {
             if (playerSelection == 'rock')
                 {
-               alert('You Win! Rock beats Scissors');
+               resultLog.textContent = 'You Win! Rock beats Scissors';
                 playerWin();
                 }
              else if (playerSelection == 'paper')
                 {
-                alert('You Lose! Scissors beats Paper');
+                resultLog.textContent = 'You Lose! Scissors beats Paper';
                 computerWin();
                 }
         }
@@ -98,27 +100,45 @@ function playRound(playerSelection) {
 function playerWin(){
         playerScore++;
         roundsPlayed++;
-        alert('Games Played: ' + roundsPlayed + '\n\nThe Score is:\nPlayer: ' + playerScore + "\nComputer: " + computerScore);
+        playerScoreLog.textContent = 'Player Score: ' + playerScore;
+        gamesPlayedLog.textContent = 'Games Played: ' + roundsPlayed;
+        checkForWinner();
+        //alert('Games Played: ' + roundsPlayed + '\n\nThe Score is:\nPlayer: ' + playerScore + "\nComputer: " + computerScore);
     }
 
 function computerWin(){
     computerScore++;
     roundsPlayed++;
-   alert('Games Played: ' + roundsPlayed + '\n\nThe Score is:\nPlayer: ' + playerScore + "\nComputer: " + computerScore);
+    computerScoreLog.textContent = 'Computer Score: ' + computerScore;
+    gamesPlayedLog.textContent = 'Games Played: ' + roundsPlayed;
+    checkForWinner();
+
+   //alert('Games Played: ' + roundsPlayed + '\n\nThe Score is:\nPlayer: ' + playerScore + "\nComputer: " + computerScore);
+}
+
+function tie(){
+    roundsPlayed++;
+    gamesPlayedLog.textContent = 'Games Played: ' + roundsPlayed;
+    checkForWinner();
+}
+
+function checkForWinner() {
+    if (playerScore > 4 || computerScore > 4)
+        {determineWinner();}
+
 }
 
 function determineWinner(){
     if (playerScore > computerScore) 
     {
-        alert('You are the winner!'); 
+        resultLog.textContent = 'You are the winner!'; 
     }
 
-    else if (computerScore > playerScore)
+    else (computerScore > playerScore)
     {
-       alert('You are the loser!');  
+       resultLog.textContent = 'You are the loser! Computer wins!';  
     }
 
-    else alert('The game has tied!');
 }
 
 //game();
