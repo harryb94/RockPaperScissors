@@ -131,12 +131,17 @@ function checkForWinner() {
 function determineWinner(){
     if (playerScore > computerScore) 
     {
-        resultLog.textContent = 'You are the winner!'; 
+        resultLog.textContent = 'You are the winner!';
+        resultLog.setAttribute('style', 'font-size: xx-large');
+        playerScoreLog.setAttribute('style', 'color: red');
     }
 
     else (computerScore > playerScore)
     {
        resultLog.textContent = 'You are the loser! Computer wins!';  
+       resultLog.setAttribute('style', 'font-size: xx-large');
+       computerScoreLog.setAttribute('style', 'color: red');
+
     }
 
 }

@@ -13,10 +13,19 @@ body {
 
 }
 
+.main {
+    padding: 10px;
+}
+
 .buttons {
     display: flex;
     justify-content: center;
 
+}
+
+#result {
+    font-size: larger;
+    color: red;
 }
 
 button {
@@ -31,7 +40,7 @@ button {
     height: 20vh;
     border-radius: 10px;
     background-color: aqua;
-    font-size: larger;
+    font-size: xx-large;
     color: black;
     border-color: black;
 }
